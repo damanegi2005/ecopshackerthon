@@ -128,7 +128,7 @@ export default function IPTracePuzzle({ onNext }) {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="구 단위 위치를 입력하세요 (예: 서대문구구)"
+            placeholder="구 단위 위치를 입력하세요 (예: 서대문구)"
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             style={{

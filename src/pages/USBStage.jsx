@@ -47,9 +47,9 @@ export default function USBStage({ onNext }) {
         {popupAllowed === false && !qrSelectedCorrectly && (
           <div className="status-message">
             <p className="success-message">
-              팝업이 차단되어 파일이 열리지 않았습니다. USB 안에 있던 QR 중 안전한 것을 고르세요.
-              QR코드를 스캔하면 표시되는 URL은 실제 운영되는 서비스가 아닙니다.
-              따라서 URL 주소만 보고 안전 여부를 판단하세요! 
+              팝업이 차단되어 파일이 열리지 않았습니다. USB 안에 있던 QR 중 비교적 안전한 것을 고르세요.
+             제시된 URL은 임의로 생성된 것으로 실제 접속 가능한 서비스가 아니며, 
+             주소 형태만 참고하시기 바랍니다!
             </p>
             <div className="qr-grid">
               {[1, 2, 4, 5].map((num, i) => (
@@ -93,6 +93,17 @@ export default function USBStage({ onNext }) {
           <div className="modal-content">
             <h3 className="modal-title">사이버 보안 정보</h3> {/* 제목 변경 */}
             <ul className="modal-list">
+              {/* 팝업 허용 주의사항 */}
+              <li>
+                <strong>팝업 허용 주의: </strong>  
+                우리는 실제로 팝업을 허용해야 하는 상황에서 무심코 누르는 경우가 많습니다.  
+                하지만 공격자가 투명한 창을 덮어씌워 <strong>가짜 팝업</strong>을 띄울 수 있어요.  
+                사용자가 허용을 누르면, 사실은 백그라운드에서 <strong>악성 앱 설치 버튼</strong>이 눌리거나   
+                 <strong>악성 앱 다운로드 페이지·스미싱 사이트</strong>로 연결될 수도 있습니다.  
+                즉, 팝업을 허용하는 것은 누군가가 당신 화면 위에 가짜 내용을 마음대로 띄울 수 있도록 허락하는 것과 같습니다.  
+                팝업은 함부로 허용해서는 안 됩니다.
+              </li>
+             <br />
               {/* QR코드 정보 */}
               <li>
                 <strong>QR코드란?</strong> Quick Response Code의 약자로, 스캔 시 텍스트, URL 등의 정보를 읽어낼 수 있는 2차원 바코드입니다. QR코드는 문자열 데이터를 압축한 것으로, QR앱이나 카메라로 패턴을 해석하면 문자열을 복원할 수 있습니다. 만약 QR코드 안에 악성 URL을 삽입한다면, 이를 스캔 시 피싱 사이트로 연결되어 중요 정보 탈취 등의 공격이 발생할 수 있습니다. 안전해 보이는 QR이라도 실제로는 다크웹 주소일 수 있습니다. 그러므로 QR을 스캔하면 바로 열지 말고 URL을 먼저 확인해야 합니다.

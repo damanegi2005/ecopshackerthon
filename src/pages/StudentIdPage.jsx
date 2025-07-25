@@ -74,8 +74,8 @@ export default function StudentIdPage({ onNext }) {
           <StudentCard student={studentInfo} />
 
           <p style={{ marginTop: 20, color: 'red' }}>
-            이렇게 학생증만 있어도 여러분들의 정체를 쉽게 알아차릴 수 있습니다.<br />
-            학생증과 주민등록증만으로도 너무 많은 정보를 알 수 있으니 항상 잘 챙기세요!
+            학생증만으로도 여러분의 신원을 손쉽게 파악할 수 있습니다.<br />
+            학생증과 주민등록증에는 많은 정보가 담겨 있으니, 항상 잘 챙기고 분실에 유의하세요!
           </p>
 
           {!showNextButton && (
