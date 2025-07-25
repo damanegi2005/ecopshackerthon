@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import RoomZeroIntro from './pages/RoomZeroIntro';
+import StudentIdPage from './pages/StudentIdPage';
+import SecurityGoalsPuzzle from './pages/SecurityGoalsPuzzle';
+import IPTracePuzzle from './pages/IPTracePuzzle';
+import USBStage from './pages/USBStage';  // 새 스테이지 임포트
 
 function App() {
+  const [step, setStep] = useState(1);
+
+  const handleNext = () => {
+    setStep(prev => prev + 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {step === 1 && <RoomZeroIntro onNext={handleNext} />}
+      {step === 2 && <StudentIdPage onNext={handleNext} />}
+      {step === 3 && <SecurityGoalsPuzzle onNext={handleNext} />}
+      {step === 4 && <IPTracePuzzle onNext={handleNext} />}
+      {step === 5 && <USBStage onNext={handleNext} />}  {/* USB 스테이지 추가 */}
+      {step > 5 && <div><h2>다음 단계 준비 중입니다...</h2></div>}
     </div>
   );
 }

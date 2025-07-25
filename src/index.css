@@ -1,3 +1,4 @@
+/* 기존 body, code 스타일은 그대로 둡니다. */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +11,278 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* ========================================================= */
+/* 여기부터 새로 추가할 CSS 코드입니다. 이전에 드린 전체 CSS 코드를 여기에 붙여넣으세요. */
+/* ========================================================= */
+
+/* 1. HTML, BODY, 그리고 React 앱이 마운트되는 루트 요소가 전체 높이를 갖도록 설정 (매우 중요!) */
+html, body {
+    height: 100%; /* 뷰포트 높이의 100%를 차지 */
+    /* margin과 padding은 이미 body에 설정되어 있으므로 중복될 수 있으나, 안전을 위해 다시 포함 */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 가로 스크롤바 방지 */
+}
+
+/* React 앱이 마운트되는 div (예: public/index.html의 <div id="root"></div>) */
+/* Next.js 앱은 보통 <div id="__next"></div> */
+#root, #__next { /* 당신의 프로젝트에 맞는 ID를 사용하세요 */
+    height: 100%;
+}
+
+
+/* 2. 최상위 컨테이너 스타일: 화면 전체 너비/높이, 배경 이미지, 가운데 정렬 */
+.full-screen-container {
+    width: 100vw; /* 뷰포트 너비의 100% */
+    height: 100vh; /* 뷰포트 높이의 100% */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex; /* Flexbox를 사용하여 자식 요소를 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    padding: 20px; /* 가장자리에 약간의 패딩 */
+    box-sizing: border-box; /* 패딩이 너비/높이에 포함되도록 */
+}
+
+/* 3. 스테이지 콘텐츠 박스 스타일: 검은색 배경, 투명도, 텍스트 색상, 적절한 너비 */
+.stage-content-box {
+    background-color: rgba(0, 0, 0, 0.7); /* 검은색 배경, 70% 투명도 */
+    color: white;
+    padding: 40px; /* 내부 패딩 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    text-align: center;
+    width: 100%; /* 부모 컨테이너의 너비 100%를 차지 */
+    max-width: 900px; /* 최대 너비 설정 (원하는대로 조절) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    box-sizing: border-box; /* 패딩이 너비/높이에 포함되도록 */
+    max-height: 90vh; /* 뷰포트 높이의 90%를 넘지 않도록 */
+    overflow-y: auto; /* 내용이 넘치면 세로 스크롤 */
+}
+
+/* 4. 제목 스타일 */
+.stage-title {
+    font-size: 2.25rem; /* 36px */
+    font-weight: bold;
+    margin-bottom: 2rem; /* 32px */
+}
+
+/* 5. USB 파일 열기 버튼 스타일 */
+.usb-file-button {
+    background-color: #3b82f6; /* 파란색 */
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+.usb-file-button:hover {
+    background-color: #2563eb;
+}
+
+/* 6. 상태 메시지 컨테이너 (악성코드 감염 또는 팝업 차단 메시지) */
+.status-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 7. 악성코드 경고 메시지 스타일 */
+.malware-alert {
+    font-size: 1.5rem; /* 24px */
+    color: #f87171; /* 빨간색 */
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* 8. 이전으로 버튼 스타일 */
+.back-button {
+    background-color: #dc2626; /* 진한 빨간색 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+.back-button:hover {
+    background-color: #b91c1c;
+}
+
+/* 9. 성공 메시지 스타일 (팝업 차단됨) */
+.success-message {
+    font-size: 1.125rem; /* 18px */
+    color: #86efad; /* 연두색 */
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+/* 10. QR 그리드 스타일 */
+.qr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* 반응형 그리드 */
+    gap: 24px;
+    justify-items: center; /* 아이템 중앙 정렬 */
+    margin: 0 auto; /* 그리드 자체를 중앙에 */
+    max-width: 600px; /* 그리드 최대 너비 제한 */
+}
+
+/* 11. 각 QR 아이템 컨테이너 스타일 */
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 12. QR 이미지 스타일 */
+.qr-image {
+    width: 100px;
+    height: 100px;
+    border: 1px solid white;
+    cursor: pointer;
+    object-fit: contain;
+}
+
+/* 13. QR 선택 버튼 스타일 */
+.select-qr-button {
+    margin-top: 8px;
+    background-color: white;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem; /* 14px */
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+.select-qr-button:hover {
+    background-color: #e5e7eb;
+}
+
+/* 14. 정보 보기 버튼 스타일 */
+.info-button {
+    margin-top: 40px;
+    color: #93c5fd; /* 밝은 파란색 */
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1.125rem; /* 18px */
+    transition: color 0.2s ease-in-out;
+}
+.info-button:hover {
+    color: #60a5fa;
+}
+
+/* 15. 모달 오버레이 스타일 */
+.modal-overlay {
+    position: fixed; /* 뷰포트에 고정 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* 검은색 배경, 70% 투명도 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* 다른 콘텐츠 위에 표시될 높은 z-index */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 16. 모달 콘텐츠 박스 스타일 */
+.modal-content {
+    background-color: white;
+    color: black;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh; /* 뷰포트 높이의 90%를 넘지 않도록 */
+    overflow-y: auto; /* 내용이 넘치면 스크롤 */
+    box-sizing: border-box;
+}
+
+/* 17. 모달 제목 스타일 */
+.modal-title {
+    font-size: 1.5rem; /* 24px */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* 18. 모달 리스트 스타일 */
+.modal-list {
+    list-style: disc;
+    list-style-position: inside;
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+.modal-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* 19. 모달 닫기 버튼 스타일 */
+.modal-close-button {
+    background-color: #dc2626; /* 진한 빨간색 */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+.modal-close-button:hover {
+    background-color: #b91c1c;
+}
+
+/* 20. (선택 사항) 작은 화면을 위한 반응형 조정 */
+@media (max-width: 768px) { /* 태블릿 및 모바일 */
+    .stage-content-box {
+        padding: 25px;
+    }
+    .stage-title {
+        font-size: 1.75rem; /* 28px */
+        margin-bottom: 1.5rem;
+    }
+    .qr-grid {
+        grid-template-columns: repeat(2, 1fr); /* 작은 화면에서는 2열 */
+        gap: 16px;
+    }
+    .qr-image {
+        width: 80px;
+        height: 80px;
+    }
+    .modal-content {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) { /* 매우 작은 모바일 화면 */
+    .stage-content-box {
+        padding: 15px;
+    }
+    .stage-title {
+        font-size: 1.5rem; /* 24px */
+        margin-bottom: 1rem;
+    }
+    .usb-file-button, .back-button, .select-qr-button, .info-button, .modal-close-button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+    .qr-image {
+        width: 70px;
+        height: 70px;
+    }
+    .modal-title {
+        font-size: 1.2rem;
+    }
+    .modal-list {
+        font-size: 0.85rem;
+    }
 }
