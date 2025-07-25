@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ecopshackerthon/static/css/main.95f4d481.css",
-    "main.js": "/ecopshackerthon/static/js/main.23cf8eee.js",
+    "main.js": "/ecopshackerthon/static/js/main.21eca9bb.js",
     "static/js/453.6a31f66e.chunk.js": "/ecopshackerthon/static/js/453.6a31f66e.chunk.js",
     "index.html": "/ecopshackerthon/index.html",
     "main.95f4d481.css.map": "/ecopshackerthon/static/css/main.95f4d481.css.map",
-    "main.23cf8eee.js.map": "/ecopshackerthon/static/js/main.23cf8eee.js.map",
+    "main.21eca9bb.js.map": "/ecopshackerthon/static/js/main.21eca9bb.js.map",
     "453.6a31f66e.chunk.js.map": "/ecopshackerthon/static/js/453.6a31f66e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95f4d481.css",
-    "static/js/main.23cf8eee.js"
+    "static/js/main.21eca9bb.js"
   ]
 }
